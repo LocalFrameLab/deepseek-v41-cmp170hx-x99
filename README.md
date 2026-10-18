@@ -1,5 +1,9 @@
 # DeepSeek V4.1 Flash：X99 + 4× CMP 170HX 混合推理实测
 
+**LocalFrameLab · 本地帧工坊**
+
+专注本地 AI 推理、动画与视频创作工具的实践与实验记录。
+
 这是 X99 双路 Xeon、四张 CMP 170HX 的部署补丁、基准工具和七轮优化结果。基于 [buliaoyin/vllm-backport](https://github.com/buliaoyin/vllm-backport) 的 `codex/deepseek-v41-cpu-hybrid` 分支，参考 [aiultrayang 的四卡部署方案](https://github.com/aiultrayang/deepseek-v41-flash-cmp170hx)。
 
 本机实测原始 eager 基线单流约 6.5 token/s；修复 Graph 重捕获和禁用 P2P 后的跨卡传输问题，配合已有 DSpark，选定配置的 3000-token 单流 Decode 样本约 **48–59 token/s**，八路混合端到端聚合约 **91–117 token/s**。这些是组合配置的结果，不能把全部提升归因于本仓库补丁。**没有达到单流 80 或 100 token/s**。
