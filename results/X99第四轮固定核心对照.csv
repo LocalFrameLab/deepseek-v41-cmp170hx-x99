@@ -1,0 +1,9 @@
+﻿配置,并发,Decode每请求token/s,端到端聚合token/s,TTFT秒范围,证据文件,说明
+原调度A1,1,52.78,50.92,2.032–2.032,bench-round4-affinity-before.jsonl,无活动计时
+原调度A1,8,14.32–18.97,107.62,1.840–4.307,bench-round4-affinity-before.jsonl,无活动计时
+固定核心B1,1,53.99,52.18,1.871–1.871,bench-round4-affinity-candidate.jsonl,首字阶段可能与轨迹哈希归档重叠，辅助样本
+固定核心B1,8,14.61–20.02,110.27,1.784–3.942,bench-round4-affinity-candidate.jsonl,首字阶段可能与轨迹哈希归档重叠，辅助样本
+固定核心B2,1,53.26,51.44,1.941–1.941,bench-round4-affinity-candidate-repeat.jsonl,无活动计时，无归档任务
+固定核心B2,8,14.81–21.14,112.92,0.639–3.092,bench-round4-affinity-candidate-repeat.jsonl,无活动计时，无归档任务
+恢复原调度A2,1,53.38,51.55,1.950–1.950,bench-round4-affinity-after.jsonl,无活动计时
+恢复原调度A2,8,14.95–21.93,116.70,0.656–3.214,bench-round4-affinity-after.jsonl,无活动计时

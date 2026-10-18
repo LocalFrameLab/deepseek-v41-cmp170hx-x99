@@ -1,0 +1,10 @@
+﻿token数,方案,中位往返毫秒,数据逐位一致,源GPU,目标GPU,重复数,证据
+4,three,0.024344959259033204,True,3,0,15,host-packets-round6.jsonl
+4,three_control,0.024441280364990235,True,3,0,15,host-packets-round6.jsonl
+4,packed,0.033474240303039554,True,3,0,15,host-packets-round6.jsonl
+24,three,0.08967264175415039,True,3,0,15,host-packets-round6.jsonl
+24,three_control,0.08957216262817383,True,3,0,15,host-packets-round6.jsonl
+24,packed,0.09723839759826661,True,3,0,15,host-packets-round6.jsonl
+128,three,0.42381729125976564,True,3,0,15,host-packets-round6.jsonl
+128,three_control,0.4234070587158203,True,3,0,15,host-packets-round6.jsonl
+128,packed,0.4308291244506836,True,3,0,15,host-packets-round6.jsonl

@@ -1,0 +1,168 @@
+diff --git a/vllm/models/deepseek_v4_1/expert_cache.py b/vllm/models/deepseek_v4_1/expert_cache.py
+index 7b3ed95..0d1a121 100644
+--- a/vllm/models/deepseek_v4_1/expert_cache.py
++++ b/vllm/models/deepseek_v4_1/expert_cache.py
+@@ -2,6 +2,7 @@
+ # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
+ """A GPU expert cache with stable addresses across graph replays."""
+
++import os
+ import time
+ from collections import OrderedDict
+ from collections.abc import Callable
+@@ -117,6 +118,11 @@ class GPUExpertCache:
+         self.top_k = top_k
+         self.device_io: tuple[torch.Tensor, ...] | None = None
+         self.prefill_io: tuple[torch.Tensor, ...] | None = None
++        self.host_staging = (
++            self.device != self.origin
++            and os.environ.get("DSV41_HOST_STAGING_CACHE") == "1"
++        )
++        self.host_io: tuple[torch.Tensor, ...] | None = None
+         self.memory_pool: torch.cuda.MemPool | None = None
+         self.expert_map = torch.full(
+             (num_experts,), -1, dtype=torch.int32, device=self.device
+@@ -566,6 +572,17 @@ class GPUExpertCache:
+             self.select(list(range(self.capacity)))
+         if self.device_io is None:
+             self.device_io = self._allocate_io(decode_tokens)
++        if self.host_staging and self.host_io is None:
++            hidden = self.device_io[0].shape[1]
++            options = {"device": "cpu", "pin_memory": True}
++            # Fixed addresses survive all captures/replays, including the
++            # 128-token prefill path. No peer mapping is required.
++            self.host_io = (
++                torch.empty((128, hidden), dtype=self.device_io[0].dtype, **options),
++                torch.empty((128, self.top_k), dtype=torch.int32, **options),
++                torch.empty((128, self.top_k), dtype=torch.float32, **options),
++                torch.empty((128, hidden), dtype=self.device_io[3].dtype, **options),
++            )
+
+     @torch.no_grad()
+     def warmup(self):
+@@ -605,13 +622,25 @@ class GPUExpertCache:
+         x, selected, routing, output = (part[:tokens] for part in io[:4])
+         result = torch.empty_like(hidden) if self.device != self.origin else output
+         origin_stream = torch.cuda.current_stream(hidden.device)
++        if self.host_staging:
++            assert self.host_io is not None
++            with torch.cuda.stream(origin_stream):
++                self.host_io[0][:tokens].copy_(hidden, non_blocking=True)
++                self.host_io[1][:tokens].copy_(ids.int(), non_blocking=True)
++                self.host_io[2][:tokens].copy_(routes, non_blocking=True)
+         self.stream.wait_stream(origin_stream)
+         # Keep remote allocations alive independently of the origin GPU's graph
+         # pool. Later draft captures must not recycle their captured addresses.
+         with torch.cuda.stream(self.stream), self._allocation_context():
+-            x.copy_(hidden, non_blocking=True)
+-            selected.copy_(ids.int(), non_blocking=True)
+-            routing.copy_(routes, non_blocking=True)
++            if self.host_staging:
++                assert self.host_io is not None
++                x.copy_(self.host_io[0][:tokens], non_blocking=True)
++                selected.copy_(self.host_io[1][:tokens], non_blocking=True)
++                routing.copy_(self.host_io[2][:tokens], non_blocking=True)
++            else:
++                x.copy_(hidden, non_blocking=True)
++                selected.copy_(ids.int(), non_blocking=True)
++                routing.copy_(routes, non_blocking=True)
+             w13, w2, s13, s2 = self.packed
+             fused_marlin_moe(
+                 x,
+@@ -647,7 +676,17 @@ class GPUExpertCache:
+             # Enqueue this only after the CPU branch. PyTorch's peer copy waits
+             # on both GPUs' streams, so an early copy would serialize the branches.
+             with torch.cuda.stream(self.stream):
+-                output.copy_(io[3][: output.shape[0]], non_blocking=True)
++                if self.host_staging:
++                    assert self.host_io is not None
++                    self.host_io[3][: output.shape[0]].copy_(
++                        io[3][: output.shape[0]], non_blocking=True
++                    )
++                else:
++                    output.copy_(io[3][: output.shape[0]], non_blocking=True)
+         stream = torch.cuda.current_stream(output.device)
+         stream.wait_stream(self.stream)
++        if self.host_staging:
++            assert self.host_io is not None
++            with torch.cuda.stream(stream):
++                output.copy_(self.host_io[3][: output.shape[0]], non_blocking=True)
+         output.record_stream(stream)
+diff --git a/vllm/models/deepseek_v4_1/hybrid.py b/vllm/models/deepseek_v4_1/hybrid.py
+index b5c2e7e..f60636c 100644
+--- a/vllm/models/deepseek_v4_1/hybrid.py
++++ b/vllm/models/deepseek_v4_1/hybrid.py
+@@ -3,6 +3,7 @@
+ """Scoped defaults and memory planning for CPU hybrid serving."""
+
+ import math
++import os
+ from pathlib import Path
+
+ from vllm.logger import init_logger
+@@ -34,9 +35,15 @@ def apply_hybrid_defaults(args):
+         "r8_refill",
+         "adaptive_cache",
+         "route_tail_skip",
++        "cache_decode_interval",
+     }
+     if unknown:
+         raise ValueError(f"Unknown DeepSeek hybrid options: {sorted(unknown)}")
++    interval = settings.get("cache_decode_interval")
++    if "cache_decode_interval" in settings and (
++        type(interval) is not int or interval < 1
++    ):
++        raise ValueError("cache_decode_interval must be a positive integer")
+     tail_skip = settings.get("route_tail_skip", 0)
+     if type(tail_skip) is not int or not 0 <= tail_skip < 8:
+         raise ValueError("route_tail_skip must be an integer from 0 to 7")
+@@ -173,6 +180,10 @@ def plan_engram_cache(settings, num_embeddings, head_dim):
+
+ def plan_expert_cache(capacities, num_layers=20, bank_size=384, local_device=None):
+     """Distribute bounded slots fairly, preferring local execution when it fits."""
++    if os.environ.get("DSV41_FORCE_LOCAL_CACHE") and local_device is not None:
++        capacities = [
++            0 if i != local_device else capacities[i] for i in range(len(capacities))
++        ]
+     remaining = list(capacities)
+     result = []
+     for layer in range(num_layers):
+diff --git a/vllm/models/deepseek_v4_1/hybrid_runtime.py b/vllm/models/deepseek_v4_1/hybrid_runtime.py
+index acd04ba..ae88e52 100644
+--- a/vllm/models/deepseek_v4_1/hybrid_runtime.py
++++ b/vllm/models/deepseek_v4_1/hybrid_runtime.py
+@@ -579,7 +579,10 @@ def _allocate_hybrid_cache(worker, plan, *, probe=False):
+                     "prepack_resident": False,
+                     "host_lru_experts": lru_slots,
+                     "host_cache_bytes": lru_slots * expert_bytes,
+-                    "decode_interval": 16 if cache.r8_refill is not None else 64,
++                    "decode_interval": settings.get(
++                        "cache_decode_interval",
++                        16 if cache.r8_refill is not None else 64,
++                    ),
+                     "decode_budget_ms": 16.0 if cache.r8_refill is not None else 8.0,
+                 }
+             )
+@@ -1038,6 +1041,22 @@ def _clear_hybrid_graphs_and_cache(worker):
+     manager.aux_hidden_states.clear()
+     manager.intermediate_tensors = None
+     manager.breakable_cg_runner = None
++    # Every calibration retry destroys all graphs from the previous capture.
++    # Their pool may still contain live activation tensors but have use_count=0;
++    # PyTorch forbids capturing into that retired pool. Give every capture owner
++    # a fresh shared pool, including managers created below for DSpark.
++    from vllm.platforms import current_platform
++
++    fresh_pool = current_platform.graph_pool_handle()
++    type(current_platform)._global_graph_pool = fresh_pool
++    manager.pool = fresh_pool
++    for wrapper in list(CUDAGraphWrapper._all_instances) + list(
++        BreakableCUDAGraphWrapper._all_instances
++    ):
++        wrapper.graph_pool = fresh_pool
++    logger.info(
++        "Rotated hybrid CUDA Graph pool for cache recalibration: %s", fresh_pool
++    )
+     if runner.model_state.supports_mm_inputs:
+         runner.model_state.encoder_runner.clear()
+     if runner.speculator is not None:

@@ -1,0 +1,11 @@
+﻿并发,PP阶段,测量部分,满批decode样本数,平均毫秒,中位毫秒,样本P95毫秒,证据文件
+1,0,目标验证Graph,212,5.134,5.231,7.040,stage-summary-round4.json
+1,1,目标验证Graph,212,2.879,2.879,3.128,stage-summary-round4.json
+1,2,目标验证Graph,212,4.428,4.555,6.217,stage-summary-round4.json
+1,3,目标验证Graph,212,20.742,19.576,30.081,stage-summary-round4.json
+1,3,草稿propose,212,2.325,2.322,2.395,stage-summary-round4.json
+8,0,目标验证Graph,191,19.799,19.121,26.256,stage-summary-round4.json
+8,1,目标验证Graph,191,8.061,8.189,8.908,stage-summary-round4.json
+8,2,目标验证Graph,191,16.384,16.403,22.162,stage-summary-round4.json
+8,3,目标验证Graph,191,88.412,86.059,121.039,stage-summary-round4.json
+8,3,草稿propose,191,4.212,4.207,4.446,stage-summary-round4.json

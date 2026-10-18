@@ -1,0 +1,5 @@
+{
+  "vllm/models/deepseek_v4_1/hybrid.py": "d332c5e62aca40032ce28c9db6b0b95f2c13c79e0a1bb1466b032edb7d63b57d",
+  "vllm/models/deepseek_v4_1/hybrid_runtime.py": "95a75ca1cdd261ad1999199771dffcec031ca15c0cbdb32ba90c58d0bae4574f",
+  "vllm/models/deepseek_v4_1/expert_cache.py": "779b7315a2f88fa9b5c63860192dfcc35da83a83aa090244ab4bc8057bf91be1"
+}

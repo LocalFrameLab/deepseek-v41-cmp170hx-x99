@@ -1,0 +1,277 @@
+﻿实验,层,负载,帧,token数,缓存路由数,参数,中位耗时毫秒,相对默认耗时,逐位一致,最大绝对误差,相对L2误差,Graph与候选eager逐位一致,错误,证据
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,默认基线,0.5707007884979248,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,相同基线对照,0.5832672119140625,1.022019285183068,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.5707215785980224,1.00003642907197,False,0.00048828125,4.304882895667106e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.582803201675415,1.0212062317442097,False,0.00048828125,4.304882895667106e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.6331376075744629,1.1094037722304024,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.5828512191772461,1.0212903695319941,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.5715871810913086,1.001553165180859,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.6787007808685303,1.1892410078052629,False,0.00048828125,4.304882895667106e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.5895120143890381,1.0329616258996666,False,0.00048828125,4.304882895667106e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,0,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.6035071849822998,1.0574844071456795,False,0.00048828125,4.304882895667106e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,默认基线,0.6398208141326904,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,相同基线对照,0.6365568161010742,0.994898574789192,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.6322288036346435,0.9881341614240258,False,0.000244140625,1.621890623937361e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.643294382095337,1.0054289699333323,False,0.000244140625,1.621890623937361e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.6964655876159668,1.0885322456414008,False,0.001953125,0.000388980726711452,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.6478047847747803,1.0124784478181013,False,0.001953125,0.000388980726711452,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.6472352027893067,1.0115882267235505,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.7441840171813965,1.1631131728500825,False,0.000244140625,1.621890623937361e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.664302396774292,1.0382631857245652,False,0.000244140625,1.621890623937361e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c1,1,4,23,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.6751152038574219,1.055162928346704,False,0.000244140625,1.621890623937361e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,默认基线,0.937831974029541,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,相同基线对照,0.9347711563110351,0.996736283467331,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.9345376014709472,0.9964872464899667,False,0.001953125,0.00014092940546106547,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.9290639877319335,0.990650791889794,False,0.001953125,0.00014092940546106547,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.9792943954467773,1.0442109275066478,False,0.0001220703125,3.365544671396492e-06,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.9307295799255371,0.992426794670385,False,0.00048828125,1.724328649288509e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.9457119941711426,1.0084023794878136,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.0419919967651368,1.1110646956171222,False,0.001953125,0.00014182072482071817,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.963702392578125,1.0275853449924806,False,0.001953125,0.0001419404725311324,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,0,24,132,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.9707424163818359,1.035092045551497,False,0.001953125,0.00014092940546106547,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,默认基线,0.9671759605407715,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,相同基线对照,0.9689871788024902,1.0018726874277417,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.9558976173400879,0.9883388921346044,False,0.001953125,0.0001900498609757051,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.9535648345947265,0.9859269393560665,False,0.001953125,0.00019006020738743246,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.9987983703613281,1.0326956118748813,False,0.00048828125,1.6646126823616214e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.9535296440124512,0.9858905544750199,False,0.00048828125,1.6763831808930263e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.9799407958984375,1.0131980486265693,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.0607248306274415,1.0967237337395819,False,0.001953125,0.0001900498609757051,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",1.0060799598693848,1.0402243241311138,False,0.001953125,0.0001900498609757051,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,20,c8,1,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",1.0056575775146483,1.039787606954541,False,0.001953125,0.00019006020738743246,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,默认基线,0.744649600982666,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,相同基线对照,0.7328688144683838,0.9841794227798741,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.718225622177124,0.964514882206783,False,0.001953125,0.00032245219335891306,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.7250959873199463,0.9737411882892087,False,0.001953125,0.00032245219335891306,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.7582687854766845,1.0182893866807237,False,0.0009765625,3.292753899586387e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.7255824089050293,0.974394410401248,False,0.0009765625,3.292753899586387e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.7369760036468506,0.9896950225640502,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.8066608428955078,1.0832757337558625,False,0.001953125,0.00032245219335891306,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.761575984954834,1.0227306694985554,False,0.001953125,0.00032245219335891306,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,0,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.7512047767639161,1.0088030340345306,False,0.001953125,0.00032245219335891306,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,默认基线,0.7592192173004151,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,相同基线对照,0.7531263828277588,0.9919748679514188,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.7351024150848389,0.9682347315952706,False,0.001953125,7.904501399025321e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.7416704177856446,0.9768857279756834,False,0.001953125,6.611619028262794e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.7690192222595215,1.0129080043494587,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.7452191829681396,0.9815599578971987,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.7533984184265137,0.992333177636627,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.8161040306091308,1.0749254128616281,False,0.001953125,7.904501399025321e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.773638391494751,1.0189921090849186,False,0.001953125,7.904501399025321e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c1,1,4,24,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.7797359943389892,1.0270235217590071,False,0.001953125,7.904501399025321e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,默认基线,1.036302375793457,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,相同基线对照,1.047430419921875,1.0107382211875153,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",1.0266592025756835,0.9906946336870162,False,0.001953125,6.993547140154988e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",1.0418864250183106,1.0053884361893681,False,0.001953125,6.985306390561163e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",1.0722543716430664,1.0346925730263643,False,0.0009765625,1.6649244571453892e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",1.029640007019043,0.9935710185269884,False,0.0009765625,1.6649244571453892e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",1.0546319961547852,1.0176875213156718,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.1334431648254395,1.093737881241086,False,0.001953125,6.993547140154988e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",1.0849023818969727,1.0468975148940525,False,0.001953125,6.993547140154988e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,0,24,140,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",1.0950655937194824,1.0567047025063825,False,0.001953125,6.985306390561163e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,默认基线,1.0783023834228516,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,相同基线对照,1.074835205078125,0.9967845954919242,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",1.0470623970031738,0.9710285473722939,False,0.00390625,0.0002098094846587628,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",1.0694080352783204,0.9917515269545284,False,0.00390625,0.00020980938279535621,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",1.097219181060791,1.0175431288372858,False,0.00390625,6.792800559196621e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",1.0591567993164062,0.9822446983325107,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",1.0646495819091797,0.9873386151013283,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.155025577545166,1.0711518357946797,False,0.00390625,0.0002098094846587628,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",1.1191503524780273,1.0378817386320822,False,0.00390625,0.0002098094846587628,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,29,c8,1,24,138,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",1.1264944076538086,1.0446924953258299,False,0.00390625,0.0002098094846587628,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,默认基线,0.7441904067993164,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,相同基线对照,0.7252352237701416,0.9745291220418992,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.7164495944976806,0.9627235018777708,False,0.0009765625,2.5083611035370268e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.7197487831115723,0.9671567606026193,False,0.0009765625,2.5083611035370268e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.7537456035614014,1.0128397204193762,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.7275807857513428,0.9776809524871333,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.7442656040191651,1.0001010456721313,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.791048002243042,1.0629645249597548,False,0.0009765625,2.5083611035370268e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.7669856071472168,1.0306308709970344,False,0.0009765625,2.5083611035370268e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,0,4,22,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.7659535884857178,1.0292441040459022,False,0.0009765625,2.5083611035370268e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [4, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,默认基线,0.7233071804046631,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,相同基线对照,0.7094223976135254,0.9808037536923528,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",0.6912543773651123,0.9556857668388989,False,0.00390625,7.41765252314508e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",0.7060304164886475,0.976114209309591,False,0.00390625,7.41765252314508e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",0.730840015411377,1.0104144341585266,False,0.000244140625,4.600232841767138e-06,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",0.7036672115325928,0.9728469875536387,False,0.000244140625,4.600232841767138e-06,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",0.714854383468628,0.9883136830864776,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",0.765715217590332,1.0586307426976505,False,0.00390625,7.41765252314508e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",0.7329808235168457,1.013374183713717,False,0.00390625,7.41765252314508e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c1,1,4,21,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",0.7383312225341797,1.0207713161662673,False,0.00390625,7.41765252314508e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,默认基线,1.1225503921508788,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,相同基线对照,1.1183679580688477,0.99627416808076,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",1.1084768295288085,0.9874628678405213,False,0.00390625,0.00013131837476976216,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",1.1163806915283203,0.9945038542004898,False,0.00390625,0.00013131837476976216,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",1.1435711860656739,1.0187259245213196,False,0.001953125,2.5298553737229668e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",1.1105520248413085,0.9893115111860764,False,0.001953125,2.5298553737229668e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",1.110159969329834,0.9889622569216657,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.1999600410461426,1.0689587295470468,False,0.00390625,0.00013131837476976216,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",1.2336912155151367,1.0990074246478192,False,0.00390625,0.00013131837476976216,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,0,24,126,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",1.166207981109619,1.0388914290743683,False,0.00390625,0.00013131837476976216,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 128}",,,,,,,"marlin_mm, <VLLM_ROOT>/csrc/libtorch_stable/moe/marlin_moe_wna16/ops.cu:348, Invalid thread config: thread_m_blocks = 1, thread_k = 128, thread_n = 128, num_threads = 256 for MKN = [24, 5120, 4608] and num_bits = 4, group_size = 32, has_zp = 0, is_zp_float = 0, max_shared_mem = 40704",gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,默认基线,1.2998255729675292,1.0,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,相同基线对照,1.3887136459350586,1.0683846162255417,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 128}",1.3584799766540527,1.045124826673947,False,0.001953125,5.9890451666433364e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 128}",1.3542976379394531,1.0419072113249497,False,0.001953125,5.944682197878137e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 1, ""thread_k"": 64, ""thread_n"": 128}",1.3933391571044922,1.0719431792093992,False,0.001953125,4.0473030821885914e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 2, ""thread_k"": 64, ""thread_n"": 128}",1.1744959831237793,0.9035796860361658,False,0.001953125,2.2796699340688065e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 4, ""thread_k"": 64, ""thread_n"": 128}",1.3918224334716798,1.0707763121586535,True,0.0,0.0,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 1, ""thread_k"": 128, ""thread_n"": 64}",1.476699161529541,1.1360748643821537,False,0.001953125,5.9890451666433364e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 2, ""thread_k"": 128, ""thread_n"": 64}",1.4389023780822754,1.1069965139993598,False,0.001953125,5.9890451666433364e-05,True,,gpu-round6-unrolled.jsonl
+复用缓冲+图内16次计算,39,c8,1,24,125,"{""blocks_per_sm"": 4, ""thread_k"": 128, ""thread_n"": 64}",1.421070384979248,1.093277755518315,False,0.001953125,5.944682197878137e-05,True,,gpu-round6-unrolled.jsonl
+本卡输入复制/直读初筛,20,c1,0,4,21,"{""copy_inputs"": true}",0.5300479888916015,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,0,4,21,"{""copy_inputs"": true}",0.5302527904510498,1.000386383051611,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,0,4,21,"{""copy_inputs"": false}",0.5218815803527832,0.9845930770232798,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,1,4,23,"{""copy_inputs"": true}",0.5882880210876464,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,1,4,23,"{""copy_inputs"": true}",0.5885695934295654,1.0004786300788486,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,1,4,23,"{""copy_inputs"": false}",0.574617576599121,0.9767623272980283,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,2,4,22,"{""copy_inputs"": true}",0.5764607906341552,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,2,4,22,"{""copy_inputs"": true}",0.5657599925994873,0.9814370756718837,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,2,4,22,"{""copy_inputs"": false}",0.5662720203399658,0.9823253021545821,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,3,4,20,"{""copy_inputs"": true}",0.5168384075164795,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,3,4,20,"{""copy_inputs"": true}",0.5192192077636719,1.0046064692804715,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,3,4,20,"{""copy_inputs"": false}",0.5076479911804199,0.9822180081774079,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,4,4,23,"{""copy_inputs"": true}",0.5885695934295654,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,4,4,23,"{""copy_inputs"": true}",0.5989376068115234,1.0176156116416821,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,4,4,23,"{""copy_inputs"": false}",0.5904128074645996,1.0031316840958329,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,5,4,24,"{""copy_inputs"": true}",0.6245888233184814,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,5,4,24,"{""copy_inputs"": true}",0.6242047786712647,0.9993851240482078,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,5,4,24,"{""copy_inputs"": false}",0.617241621017456,0.9882367374715589,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,6,4,23,"{""copy_inputs"": true}",0.6086400032043457,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,6,4,23,"{""copy_inputs"": true}",0.6085375785827637,0.9998317155937125,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,6,4,23,"{""copy_inputs"": false}",0.601036787033081,0.9875078599315925,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,7,4,23,"{""copy_inputs"": true}",0.6098688125610352,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,7,4,23,"{""copy_inputs"": true}",0.6094336032867431,0.9992863887030646,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c1,7,4,23,"{""copy_inputs"": false}",0.5933055877685547,0.9728413316907841,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,0,24,132,"{""copy_inputs"": true}",0.8543231964111329,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,0,24,132,"{""copy_inputs"": true}",0.8542464256286622,0.9999101384782794,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,0,24,132,"{""copy_inputs"": false}",0.846003246307373,0.990261355259098,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,1,24,126,"{""copy_inputs"": true}",0.8548352241516113,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,1,24,126,"{""copy_inputs"": true}",0.8530176162719727,0.9978737330560489,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,1,24,126,"{""copy_inputs"": false}",0.8517120361328125,0.9963464444017286,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,2,24,136,"{""copy_inputs"": true}",0.8549375534057617,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,2,24,136,"{""copy_inputs"": true}",0.8687359809875488,1.0161396905853757,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,2,24,136,"{""copy_inputs"": false}",0.8449024200439453,0.9882621446188203,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,3,24,131,"{""copy_inputs"": true}",0.8675328254699707,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,3,24,131,"{""copy_inputs"": true}",0.8549887657165527,0.9855405358908207,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,3,24,131,"{""copy_inputs"": false}",0.8620287895202636,0.9936555300409234,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,4,24,131,"{""copy_inputs"": true}",0.8717056274414062,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,4,24,131,"{""copy_inputs"": true}",0.8716544151306153,0.9999412504529295,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,4,24,131,"{""copy_inputs"": false}",0.8562175750732421,0.9822324740364199,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,5,24,127,"{""copy_inputs"": true}",0.8694016456604003,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,5,24,127,"{""copy_inputs"": true}",0.8708095550537109,1.0016194004236572,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,5,24,127,"{""copy_inputs"": false}",0.861184024810791,0.9905479580230525,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,6,24,121,"{""copy_inputs"": true}",0.8715519905090332,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,6,24,121,"{""copy_inputs"": true}",0.8715007781982422,0.9999412400965764,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,6,24,121,"{""copy_inputs"": false}",0.8615167617797852,0.9884857944924353,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,7,24,122,"{""copy_inputs"": true}",0.8711423873901367,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,7,24,122,"{""copy_inputs"": true}",0.8718079566955567,1.0007640189652738,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,20,c8,7,24,122,"{""copy_inputs"": false}",0.8550399780273438,0.9815157549490453,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,0,4,24,"{""copy_inputs"": true}",0.6238463878631592,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,0,4,24,"{""copy_inputs"": true}",0.6239488124847412,1.0001641824390983,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,0,4,24,"{""copy_inputs"": false}",0.6158080101013184,0.9871148123669123,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,1,4,24,"{""copy_inputs"": true}",0.6235392093658447,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,1,4,24,"{""copy_inputs"": true}",0.6242559909820556,1.0011495373593906,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,1,4,24,"{""copy_inputs"": false}",0.6148863792419433,0.9861230376631783,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,2,4,23,"{""copy_inputs"": true}",0.5996543884277343,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,2,4,23,"{""copy_inputs"": true}",0.5997312068939209,1.0001281045676793,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,2,4,23,"{""copy_inputs"": false}",0.591206407546997,0.9859119168578295,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,3,4,24,"{""copy_inputs"": true}",0.6492671966552734,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,3,4,24,"{""copy_inputs"": true}",0.6342912197113038,0.9769340311336857,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,3,4,24,"{""copy_inputs"": false}",0.6360576152801514,0.9796546299533201,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,4,4,24,"{""copy_inputs"": true}",0.6452223777770996,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,4,4,24,"{""copy_inputs"": true}",0.6442240238189697,0.9984526978720587,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,4,4,24,"{""copy_inputs"": false}",0.6356224060058594,0.9851214525380944,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,5,4,24,"{""copy_inputs"": true}",0.6492928028106689,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,5,4,24,"{""copy_inputs"": true}",0.6447872161865235,0.9930607784274804,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,5,4,24,"{""copy_inputs"": false}",0.6355967998504639,0.9789062763349331,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,6,4,24,"{""copy_inputs"": true}",0.6483712196350098,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,6,4,24,"{""copy_inputs"": true}",0.643942403793335,0.9931693207416457,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,6,4,24,"{""copy_inputs"": false}",0.6352384090423584,0.9797449205101295,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,7,4,24,"{""copy_inputs"": true}",0.6438911914825439,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,7,4,24,"{""copy_inputs"": true}",0.6441984176635742,1.000477139903596,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c1,7,4,24,"{""copy_inputs"": false}",0.6352128028869629,0.9865219640983142,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,0,24,140,"{""copy_inputs"": true}",0.8781824111938477,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,0,24,140,"{""copy_inputs"": true}",0.8724224090576171,0.9934409957853744,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,0,24,140,"{""copy_inputs"": false}",0.8646143913269043,0.9845498842905561,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,1,24,138,"{""copy_inputs"": true}",0.8719615936279297,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,1,24,138,"{""copy_inputs"": true}",0.8799488067626953,1.00916005153568,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,1,24,138,"{""copy_inputs"": false}",0.8647680282592773,0.9917501350733552,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,2,24,140,"{""copy_inputs"": true}",0.8863743782043457,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,2,24,140,"{""copy_inputs"": true}",0.8868608474731445,1.0005488304724965,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,2,24,140,"{""copy_inputs"": false}",0.8766207695007324,0.9889960619987994,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,3,24,137,"{""copy_inputs"": true}",0.8870656013488769,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,3,24,137,"{""copy_inputs"": true}",0.8882176399230957,1.0012987073024442,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,3,24,137,"{""copy_inputs"": false}",0.8768256187438965,0.9884563412340537,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,4,24,139,"{""copy_inputs"": true}",0.8870656013488769,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,4,24,139,"{""copy_inputs"": true}",0.8870911598205566,1.000028812380551,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,4,24,139,"{""copy_inputs"": false}",0.8767744064331054,0.9883986089640692,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,5,24,135,"{""copy_inputs"": true}",0.8869376182556152,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,5,24,135,"{""copy_inputs"": true}",0.8869888305664062,1.0000577406006206,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,5,24,135,"{""copy_inputs"": false}",0.8769536018371582,0.9887432709888965,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,6,24,139,"{""copy_inputs"": true}",0.8948224067687989,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,6,24,139,"{""copy_inputs"": true}",0.8872703552246094,0.991560278903319,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,6,24,139,"{""copy_inputs"": false}",0.8770303726196289,0.9801166868256943,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,7,24,131,"{""copy_inputs"": true}",0.8868608474731445,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,7,24,131,"{""copy_inputs"": true}",0.8872703552246094,1.0004617497239072,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,29,c8,7,24,131,"{""copy_inputs"": false}",0.8766719818115234,0.9885113141586401,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,0,4,22,"{""copy_inputs"": true}",0.5753344058990478,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,0,4,22,"{""copy_inputs"": true}",0.5749760150909424,0.9993770739166113,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,0,4,22,"{""copy_inputs"": false}",0.566707181930542,0.9850048530384266,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,1,4,21,"{""copy_inputs"": true}",0.562227201461792,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,1,4,21,"{""copy_inputs"": true}",0.5569024085998535,0.990529108431442,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,1,4,21,"{""copy_inputs"": false}",0.5479167938232422,0.9745469312026479,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,2,4,23,"{""copy_inputs"": true}",0.6203904151916504,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,2,4,23,"{""copy_inputs"": true}",0.6301951885223389,1.0158041985991348,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,2,4,23,"{""copy_inputs"": false}",0.6110976219177247,0.9850210560215457,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,3,4,20,"{""copy_inputs"": true}",0.5499648094177246,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,3,4,20,"{""copy_inputs"": true}",0.5397503852844239,0.981427131412071,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,3,4,20,"{""copy_inputs"": false}",0.5412864208221435,0.9842201020011274,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,4,4,24,"{""copy_inputs"": true}",0.6606336116790772,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,4,4,24,"{""copy_inputs"": true}",0.6528768062591552,0.9882585365279748,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,4,4,24,"{""copy_inputs"": false}",0.6465280055999756,0.9786483675221269,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,5,4,23,"{""copy_inputs"": true}",0.6285056114196778,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,5,4,23,"{""copy_inputs"": true}",0.6262527942657471,0.9964155973900664,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,5,4,23,"{""copy_inputs"": false}",0.6128896236419678,0.975153781455608,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,6,4,22,"{""copy_inputs"": true}",0.5929471969604492,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,6,4,22,"{""copy_inputs"": true}",0.6026495933532715,1.0163630023761956,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,6,4,22,"{""copy_inputs"": false}",0.5853951930999756,0.9872636148729828,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,7,4,24,"{""copy_inputs"": true}",0.656819200515747,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,7,4,24,"{""copy_inputs"": true}",0.6567935943603516,0.9999610149103811,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c1,7,4,24,"{""copy_inputs"": false}",0.6486271858215332,0.9875277478371807,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,0,24,126,"{""copy_inputs"": true}",0.8864255905151367,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,0,24,126,"{""copy_inputs"": true}",0.8863743782043457,0.9999422260465639,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,0,24,126,"{""copy_inputs"": false}",0.8762111663818359,0.9884768397453815,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,1,24,125,"{""copy_inputs"": true}",0.8942591667175293,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,1,24,125,"{""copy_inputs"": true}",0.9020416259765625,1.0087026888274453,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,1,24,125,"{""copy_inputs"": false}",0.8836352348327636,0.9881198512912517,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,2,24,137,"{""copy_inputs"": true}",0.8988672256469726,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,2,24,137,"{""copy_inputs"": true}",0.9020159721374512,1.0035030162415948,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,2,24,137,"{""copy_inputs"": false}",0.8920319557189942,0.992395684553902,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,3,24,131,"{""copy_inputs"": true}",0.9021183967590332,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,3,24,131,"{""copy_inputs"": true}",0.9035776138305665,1.0016175449661326,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,3,24,131,"{""copy_inputs"": false}",0.8921855926513672,0.9889894672990256,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,4,24,132,"{""copy_inputs"": true}",0.9024255752563477,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,4,24,132,"{""copy_inputs"": true}",0.9024255752563477,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,4,24,132,"{""copy_inputs"": false}",0.8921855926513672,0.9886528231404882,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,5,24,124,"{""copy_inputs"": true}",0.9013759613037109,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,5,24,124,"{""copy_inputs"": true}",0.901478385925293,1.0001136314101764,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,5,24,124,"{""copy_inputs"": false}",0.8918784141540528,0.9894632788565592,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,6,24,137,"{""copy_inputs"": true}",0.9030655860900879,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,6,24,137,"{""copy_inputs"": true}",0.9024255752563477,0.9992912908612638,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,6,24,137,"{""copy_inputs"": false}",0.8922880172729493,0.9880655746568738,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,7,24,125,"{""copy_inputs"": true}",0.9046015739440918,1.0,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,7,24,125,"{""copy_inputs"": true}",0.9024767875671387,0.9976511356622021,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl
+本卡输入复制/直读初筛,39,c8,7,24,125,"{""copy_inputs"": false}",0.892518424987793,0.9866425735878218,True,0.0,0.0,True,,gpu-round6-input-copies.jsonl

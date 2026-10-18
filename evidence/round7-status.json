@@ -1,0 +1,12 @@
+{
+  "round": 7,
+  "date": "2026-10-18",
+  "service_restored": true,
+  "health": {"/health": 200, "/v1/models": 200, "/collective_rpc": 404, "/start_profile": 404},
+  "launcher_sha256": "3e5128936cbf40ad10eed66f10bddf0cf2d28efc680c1b15e2420ff27300e28f",
+  "cuda_library_sha256": "a441b7c98657d4c50843434baf5402aa622a421deaabd0b6f89a92304e15d8ad",
+  "ik_library_sha256": "dd2cd15873bcc1c8206f77ab6fbe854f7d4671dd4bdc89258ca6e18339906ebf",
+  "production_candidate_adopted": false,
+  "reason": "The bridge passed real-expert bitwise parity and service checks, but A/B/A throughput was within baseline variation; original launcher and libraries were restored.",
+  "single_stream_target_80_reached": false
+}
