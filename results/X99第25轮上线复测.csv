@@ -1,0 +1,9 @@
+stage,repeat,concurrency,decode_tok_s,end_to_end_tok_s,aggregate_tok_s
+deploy55,1,1,52.86,51.06,
+deploy55,1,8,,,111.03
+deploy55,2,1,54.10,52.27,
+deploy55,2,8,,,113.42
+deploy55b,1,1,54.48,52.45,
+deploy55b,1,8,,,117.56
+deploy55b,2,1,55.72,53.70,
+deploy55b,2,8,,,115.51

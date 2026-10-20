@@ -4,9 +4,11 @@
 
 专注本地 AI 推理、动画与视频创作工具的实践与实验记录。
 
-这是 X99 双路 Xeon、四张 CMP 170HX 的部署补丁、基准工具和七轮优化结果。基于 [buliaoyin/vllm-backport](https://github.com/buliaoyin/vllm-backport) 的 `codex/deepseek-v41-cpu-hybrid` 分支，参考 [aiultrayang 的四卡部署方案](https://github.com/aiultrayang/deepseek-v41-flash-cmp170hx)。
+这是 X99 双路 Xeon、四张 CMP 170HX 的部署补丁、基准工具和 25 轮优化结果；第 25 轮候选已于 2026-10-20 上线。基于 [buliaoyin/vllm-backport](https://github.com/buliaoyin/vllm-backport) 的 `codex/deepseek-v41-cpu-hybrid` 分支，参考 [aiultrayang 的四卡部署方案](https://github.com/aiultrayang/deepseek-v41-flash-cmp170hx)。
 
 本机实测原始 eager 基线单流约 6.5 token/s；修复 Graph 重捕获和禁用 P2P 后的跨卡传输问题，配合已有 DSpark，选定配置的 3000-token 单流 Decode 样本约 **48–59 token/s**，八路混合端到端聚合约 **91–117 token/s**。这些是组合配置的结果，不能把全部提升归因于本仓库补丁。**没有达到单流 80 或 100 token/s**。
+
+2026-10-20 第 25 轮 A/B/A：原版单流均值 **51.85 token/s** → 候选均值 **55.13 token/s**（描述性 +6.3%）；上线后四轮 52.86–55.72，均值 **54.29**。八路聚合 107–119，无一致提升；单流 65/80 仍未达到。详见 [第 25 轮报告](docs/ROUND25.md)。
 
 ## 测试机器与配置
 
@@ -15,7 +17,7 @@
 | CPU | 双路 Xeon E5-2698B v3，32 物理核 / 64 线程 |
 | 内存 | 约 251 GiB，双 NUMA |
 | GPU | 4× CMP 170HX，64 GB / 卡，无 NVLink |
-| PCIe | 三卡 Gen2 ×8，一卡 Gen2 ×16；本机 P2P 不可靠 |
+| PCIe | 两卡 Gen2 ×8、一卡 Gen2 ×4、一卡 Gen2 ×16；本机 P2P 不可靠（实测链路） |
 | 模型 | DeepSeek-V4.1-Flash-1017，本地权重约 476 GiB |
 | 环境 | Linux、CUDA 13.0、PyTorch 2.14.1+cu130；自编译 IK/CUDA 原生库 |
 | 并行 | PP4 / TP1，层分配 `[6,6,6,22]` |
@@ -25,13 +27,16 @@
 | 缓存 | GPU 显存比例 0.97；更新间隔 64；Engram SSD、缓存 4 GiB；host LRU 8 GiB |
 | 传输 | `NCCL_P2P_DISABLE=1`、`DSV41_HOST_STAGING_CACHE=1` |
 
-测试日期为 2026-10-18。软件版本与模型名称以本次被测环境为准，复现前应核对上游版本和权重来源。
+初始测试日期为 2026-10-18；第 25 轮上线测试为 2026-10-20。软件版本与模型名称以本次被测环境为准，复现前应核对上游版本和权重来源。
 
 ## 文件入口
 
 - [部署与补丁](docs/DEPLOYMENT.md)：精确基准提交、补丁使用和边界。
 - [测试报告](docs/REPORT.md)：Decode、Prefill、TTFT、并发及未采用实验。
 - [完整 Excel](results/X99最终测试结果.xlsx)：19 张工作表；CSV 在同目录。
+- [第 25 轮报告](docs/ROUND25.md)：BatchMemOp 候选、A/B/A、上线复测与回滚边界。
+- [第 25 轮数据](results/X99第25轮服务对照.csv)：A/B/A 服务对照；同目录另有上线复测、汇总 CSV 与 Excel。
+- [第 25 轮候选源码](patches/round25-batchmemop/)：`cuda_memop_moe_v4.cpp`、`engram_ssd.cpp` 与构建脚本。
 - [隐私与发布范围](docs/PRIVACY.md)：公开包的纳入和排除范围。
 - `scripts/`：启动模板、基准脚本、六项功能检查、Excel 生成器与隐私检查。
 - `patches/x99-stable.patch`：相对上游固定提交的三个 Python 文件修改，包含本机原有本卡缓存开关。

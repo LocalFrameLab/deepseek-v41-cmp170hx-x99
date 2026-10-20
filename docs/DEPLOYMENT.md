@@ -10,6 +10,8 @@
 
 本包是增量补丁和复现实验资料，不是完整 vLLM 发行版。先按上游说明构建该提交的环境，包括 `libdsv41_ik.so` 和 `libdsv41_cuda.so`。CUDA 库还需要同库的 `engram_ssd.cpp`，只编译主机 MoE 桥接源文件会导致 Engram SSD 接口缺失。
 
+> 第 25 轮候选（2026-10-20）的源码、构建与上线记录见 [ROUND25.md](ROUND25.md) 与 `../patches/round25-batchmemop/`。
+
 ## 应用补丁
 
 在独立 checkout 中操作，保留现有运行目录。以下操作不会自动停止服务或改动容器：
